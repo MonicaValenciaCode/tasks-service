@@ -8,6 +8,8 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "dev": "nodemon",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "lint": "npx eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "format": "prettier --write .",
     "prepare": "husky"
@@ -28,6 +30,7 @@
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
     "cross-env": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
@@ -36,6 +39,7 @@
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
     "supertest": "^7.1.4",
+    "ts-jest": "^29.4.4",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2",
