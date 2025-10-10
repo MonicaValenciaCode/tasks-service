@@ -2,7 +2,7 @@
 export default {
   preset: "ts-jest",
   testEnvironment: "node",
-  testMatch: ["**/__tests__/**/*.ts", "**/?(*.)+(spec|test).ts"],
+  testMatch: ["**/?(*.)+(test).[tj]s?(x)"],
   coverageThreshold: {
     global: {
       branches: 80,
