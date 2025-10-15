@@ -14,7 +14,10 @@ describe("TasksController", () => {
       json: jest.fn(),
       status: jest.fn().mockReturnThis(),
     } as Partial<Response>;
-    return { req, res };
+    return {
+      req: req as Request,
+      res: res as Response,
+    };
   };
 
   it("should get all tasks", async () => {
