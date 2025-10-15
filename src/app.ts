@@ -1,11 +1,21 @@
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
+import { ITasksDependencyContainer } from "./interfaces/v1/tasks.interfaces";
+import DependenciesContainer from "./config/v1/dependenciesContainer";
+import createTasksRoutes from "./routes/v1/tasks.routes";
+
 dotenv.config();
 const app = express();
 
-import tasksRouterV1 from "./routes/v1/tasks.routes";
+//dependencies
+const tasksDependencyContainer: ITasksDependencyContainer =
+  new DependenciesContainer();
 
-app.use("/api/v1/tasks", tasksRouterV1);
+//routes
+const tasksRoutes = createTasksRoutes(
+  tasksDependencyContainer.getTasksController(),
+);
+app.use("/api/v1/tasks", tasksRoutes);
 
 app.get("/api", (req: Request, res: Response): Response => {
   return res.json({ message: "Tasks service API" });

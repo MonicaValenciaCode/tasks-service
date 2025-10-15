@@ -1,8 +1,12 @@
-import express from "express";
-import { getTasks } from "../../controllers/v1/tasks.controller";
+import express, { Router } from "express";
+import { ITasksController } from "../../interfaces/v1/tasks.interfaces";
 
-const router = express.Router();
+const createTasksRoutes = (controller: ITasksController): Router => {
+  const router = express.Router();
 
-router.get("/", getTasks);
+  router.get("/", controller.getTasks);
 
-export default router;
+  return router;
+};
+
+export default createTasksRoutes;
